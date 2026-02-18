@@ -1,32 +1,27 @@
 <!--
   Sync Impact Report
   ===================
-  Version change: (none) → 1.0.0
-  Type: MINOR — Initial formalization of existing constitution into template structure
+  Version change: 1.0.0 → 1.1.0
+  Type: MINOR — Ajout des liens GitHub, LinkedIn et de la photo officielle
+  dans le Principe IV (Intégrité du Contenu).
 
   Modified principles:
-    - "1. Stack technique imposée" → "I. Stack Technique Imposée" (renamed to roman numeral)
-    - "2. Architecture imposée" → "II. Architecture Imposée"
-    - "3. Design et UX" → "III. Design et UX"
-    - "4. Contenu — Règles absolues" → "IV. Intégrité du Contenu"
-    - "5. Qualité du code" → "V. Qualité du Code"
+    - "IV. Intégrité du Contenu" → contenu enrichi (liens réels + photo)
 
   Added sections:
-    - "Contraintes et Interdictions" (extracted from former section 6)
-    - "Workflow de Développement" (new — inferred from project conventions)
-    - "Governance" (new — required by template)
+    - (none)
 
   Removed sections:
-    - (none — all content preserved)
+    - (none)
 
   Templates requiring updates:
-    - .specify/templates/plan-template.md ✅ no update needed (generic "Constitution Check" reference)
-    - .specify/templates/spec-template.md ✅ no update needed (no constitution reference)
-    - .specify/templates/tasks-template.md ✅ no update needed (no constitution reference)
-    - .claude/commands/speckit.plan.md ✅ no update needed (generic reference)
-    - .claude/commands/speckit.analyze.md ✅ no update needed (generic reference)
+    - .specify/templates/plan-template.md ✅ no update needed
+    - .specify/templates/spec-template.md ✅ no update needed
+    - .specify/templates/tasks-template.md ✅ no update needed
 
-  Follow-up TODOs: (none)
+  Follow-up TODOs:
+    - Copier la photo dans le dossier public/ du projet lors de
+      l'implémentation (source locale fournie).
 -->
 
 # Constitution — Portfolio de Brice GNANAGO
@@ -74,7 +69,10 @@
 - **Aucun placeholder** : pas de "Lorem ipsum", pas de "Coming soon" sans justification
 - **Projets réels uniquement** : les 3 projets documentés (Ticket System, QR Order System, ZoomStudent) + les expériences CNPS/MONBOLIDE/EBURTIS
 - **Contact réel** : email `gnanagobrice@gmail.com`, téléphone `(+225) 0778127421`
-- **Ne pas inventer** de liens GitHub, LinkedIn ou URL de démo — laisser des placeholders clairs marqués `[À COMPLÉTER]`
+- **GitHub** : `https://github.com/Bricegnanago` — lien vérifié et officiel
+- **LinkedIn** : `https://www.linkedin.com/in/aime-brice-cesar-gnanago-7b908a157` — lien vérifié et officiel
+- **Photo officielle** : source locale `c:\Users\Utilisateur\OneDrive\Documents\DOCUMENTS_RP\BRICE\AIME BRICE CESAR GNANAGO.jpeg` — DOIT être copiée dans `public/` et servie via `next/image`
+- **Ne pas inventer** d'URL de démo ou d'autres informations personnelles non fournies — laisser des placeholders clairs marqués `[À COMPLÉTER]`
 
 ### V. Qualité du Code
 
@@ -114,4 +112,4 @@ Les actions suivantes sont strictement interdites pour tout agent IA :
 - Les contraintes et interdictions peuvent être ajustées si un besoin réel et justifié se présente
 - Tout agent IA DOIT vérifier la conformité de son travail avec cette constitution avant de livrer
 
-**Version**: 1.0.0 | **Ratified**: 2026-02-17 | **Last Amended**: 2026-02-17
+**Version**: 1.1.0 | **Ratified**: 2026-02-17 | **Last Amended**: 2026-02-18
