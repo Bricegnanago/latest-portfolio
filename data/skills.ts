@@ -19,6 +19,7 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React" },
       { name: "Next.js" },
+      { name: "Vue.js" },
       { name: "Angular" },
       { name: "Tailwind CSS" },
       { name: "Framer Motion" },
@@ -28,21 +29,24 @@ export const skillCategories: SkillCategory[] = [
     name: "Backend",
     icon: "Server",
     skills: [
+      { name: "Django Rest FrameWork" },
       { name: "Node.js" },
       { name: "Spring Boot" },
       { name: "Express" },
-      { name: "REST API" },
+      { name: "REST API" }
     ],
   },
   {
     name: "Cloud & DevOps",
     icon: "Cloud",
     skills: [
+      { name: "Gitlab" },
       { name: "AWS" },
       { name: "Docker" },
       { name: "CI/CD" },
       { name: "GitHub Actions" },
       { name: "Vercel" },
+      { name: "Render" }
     ],
   },
   {
