@@ -1,10 +1,12 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, Play } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { VideoModal } from "@/components/shared/VideoModal"
 import { Project } from "@/types"
 
 interface ProjectCardProps {
@@ -17,6 +19,8 @@ function isPlaceholder(url?: string): boolean {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -50,7 +54,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
           <div className="flex gap-2 pt-2">
-            {!isPlaceholder(project.demoUrl) ? (
+            {project.videoUrl ? (
+              <>
+                <Button variant="outline" size="sm" onClick={() => setIsVideoOpen(true)}>
+                  <Play className="mr-1 h-4 w-4" />
+                  Voir la démo
+                </Button>
+                <VideoModal
+                  videoUrl={project.videoUrl}
+                  title={project.title}
+                  isOpen={isVideoOpen}
+                  onClose={() => setIsVideoOpen(false)}
+                />
+              </>
+            ) : !isPlaceholder(project.demoUrl) ? (
               <Button variant="outline" size="sm" asChild>
                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-1 h-4 w-4" />

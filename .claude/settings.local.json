@@ -7,7 +7,11 @@
       "Bash(npx create-next-app@latest:*)",
       "Bash(npx shadcn@latest add button badge card input textarea label toast -y)",
       "Bash(npx tsc:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\ndocs: amend constitution to v1.1.0 \\(add GitHub, LinkedIn, photo\\)\n\nAdd verified GitHub and LinkedIn URLs and official photo reference\nto Principle IV \\(Content Integrity\\). Update placeholder rule to\nonly apply to demo URLs and other unverified personal info.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git checkout:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)"
     ]
   }
 }

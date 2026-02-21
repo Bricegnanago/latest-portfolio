@@ -45,6 +45,7 @@ export interface Project {
   demoUrl?: string
   sourceUrl?: string
   image?: string
+  videoUrl?: string
 }
 
 export interface ContactFormData {

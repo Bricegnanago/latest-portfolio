@@ -9,16 +9,16 @@ export const personalInfo: PersonalInfo = {
   location: "Abidjan, Côte d'Ivoire",
   languages: ["Français (natif)", "Anglais (professionnel)"],
   education: "Diplôme d'Ingénieur en Informatique",
-  certifications: ["AWS Certified"],
+  certifications: ["AWS Certified", "GitLab Certified Git Associate"],
   socials: [
     {
       name: "GitHub",
-      url: "[À COMPLÉTER]",
+      url: "https://github.com/Bricegnanago",
       icon: "Github",
     },
     {
       name: "LinkedIn",
-      url: "[À COMPLÉTER]",
+      url: "https://www.linkedin.com/in/aime-brice-cesar-gnanago-7b908a157",
       icon: "Linkedin",
     },
   ],
