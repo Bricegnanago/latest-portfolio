@@ -29,4 +29,11 @@ Markdown (documentation uniquement): Follow standard conventions
 - 001-enrich-constitution: Added Markdown (documentation uniquement) + Aucune — modification de fichier Markdown
 
 <!-- MANUAL ADDITIONS START -->
+## 003-qr-order-demo-video
+
+- Ajouter `videoUrl?: string` au type `Project` dans `types/index.ts`
+- Composant `VideoModal` à créer dans `components/shared/VideoModal.tsx` (shadcn/ui `Dialog` + `<video>` natif)
+- `dialog` shadcn/ui **non installé** — à ajouter avant implémentation : `npx shadcn@latest add dialog`
+- Vidéo source : `public/images/event_project.mp4` (existant)
+- Voir [quickstart](specs/003-qr-order-demo-video/quickstart.md) pour l'ordre d'implémentation
 <!-- MANUAL ADDITIONS END -->

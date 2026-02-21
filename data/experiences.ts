@@ -2,34 +2,40 @@ import { Experience } from "@/types"
 
 export const experiences: Experience[] = [
   {
-    company: "Barnoin / CNPS",
-    position: "Ingénieur Logiciel Full-Stack",
-    startDate: "Janvier 2024",
-    endDate: "Présent",
-    description:
-      "Conception et développement de solutions numériques pour la Caisse Nationale de Prévoyance Sociale (CNPS).",
-    responsibilities: [
-      "Développement d'applications web full-stack avec React et Spring Boot",
-      "Mise en place d'architectures microservices et déploiement sur AWS",
-      "Optimisation des performances et de la scalabilité des applications existantes",
-      "Collaboration avec les équipes métier pour la définition des spécifications techniques",
-    ],
-    location: "Abidjan, Côte d'Ivoire",
-  },
+  company: "Barnoin / CNPS",
+  position: "Ingénieur de Developpement Web et Mobile",
+  startDate: "Juin 2023",
+  endDate: "Présent",
+  location: "Abidjan, Côte d'Ivoire",
+  description:
+    "Conception, développement et maintenance de solutions numériques critiques pour la Caisse Nationale de Prévoyance Sociale (CNPS), en environnement institutionnel à forte exigence métier et réglementaire.",
+  responsibilities: [
+    "Développement d’applications web full stack avec React (frontend) et Spring Boot (backend)",
+    "Implémentation de processus métiers clés de la CNPS, notamment l’Attestation de Régularité et la Clôture Journalière Comptable",
+    "Conception et développement d’APIs permettant la synchronisation des encaissements entre les systèmes EBS et PROGRES (progiciel de gestion des relations sociales) sur plusieurs environnements CNPS Côte d’Ivoire",
+    "Mise en place et exploitation d’architectures microservices avec déploiement sur AWS",
+    "Optimisation des performances, de la sécurité et de la scalabilité des applications existantes",
+    "Collaboration étroite avec les équipes métiers pour l’analyse des besoins, la rédaction des spécifications techniques et la validation fonctionnelle"
+  ]
+},
   {
     company: "MONBOLIDE",
-    position: "Développeur Full-Stack",
-    startDate: "Mars 2023",
-    endDate: "Décembre 2023",
-    description:
-      "Développement de la plateforme de location de véhicules en ligne.",
-    responsibilities: [
-      "Développement du frontend avec React et TypeScript",
-      "Implémentation des APIs REST avec Node.js et Express",
-      "Intégration de systèmes de paiement et de géolocalisation",
-      "Mise en place de pipelines CI/CD avec GitHub Actions",
-    ],
+    position: "Développeur Full Stack",
+    startDate: "Juin 2021",
+    endDate: "Mai 2023",
     location: "Abidjan, Côte d'Ivoire",
+    description:
+      "Conception et développement d’une plateforme web de location de véhicules en ligne, orientée performance, sécurité et expérience utilisateur.",
+    responsibilities: [
+      "Développement du frontend avec React et TypeScript, en mettant l’accent sur l’ergonomie et la performance",
+      "Conception et implémentation d’APIs REST robustes avec Node.js et Express",
+      "Migration et optimisation du stockage des images depuis Cloudinary vers AWS",
+      "Intégration de systèmes de paiement pour la gestion des frais de location",
+      "Mise en place d’un système de géolocalisation permettant d’identifier les véhicules les plus proches du client",
+      "Conception et déploiement d’environnements applicatifs distincts (DEV, TEST, PROD)",
+      "Intégration d’un système de messagerie en temps réel entre propriétaires de véhicules et clients",
+      "Automatisation des déploiements via des pipelines CI/CD avec GitLab"
+    ]
   },
   {
     company: "EBURTIS",

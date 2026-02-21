@@ -9,7 +9,7 @@ export const personalInfo: PersonalInfo = {
   location: "Abidjan, Côte d'Ivoire",
   languages: ["Français (natif)", "Anglais (professionnel)"],
   education: "Diplôme d'Ingénieur en Informatique",
-  certifications: ["AWS Certified"],
+  certifications: ["AWS Certified", "GitLab Certified Git Associate"],
   socials: [
     {
       name: "GitHub",
