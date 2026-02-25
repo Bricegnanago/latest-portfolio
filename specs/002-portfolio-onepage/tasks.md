@@ -140,7 +140,7 @@
 - [x] T036 [P] Créer `next.config.ts` avec configuration d'optimisation d'images (formats, domaines si nécessaire)
 - [x] T037 [P] Créer `vercel.json` avec configuration de déploiement (`buildCommand`, `outputDirectory`, `framework`)
 - [x] T038 Vérifier la compilation TypeScript : `npx tsc --noEmit` sans erreurs
-- [ ] T039 Vérifier le responsive sur 3 tailles : 375px (mobile), 768px (tablette), 1280px (desktop)
+- [x] T039 Vérifier le responsive sur 3 tailles : 375px (mobile), 768px (tablette), 1280px (desktop)
 - [ ] T040 Vérifier les scores Lighthouse > 90 sur Performance, Accessibilité, Bonnes pratiques, SEO
 - [x] T041 Vérifier la conformité constitution : aucun `console.log`, aucune donnée fictive, aucun Lorem ipsum, aucun code commenté
 - [x] T042 Vérifier les métadonnées SEO : title, description, og:image dans `app/layout.tsx`

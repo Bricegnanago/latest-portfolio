@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { MapPin, Languages, GraduationCap, Award } from "lucide-react"
 import { SectionTitle } from "@/components/shared/SectionTitle"
@@ -37,15 +38,23 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2"
+          className="mx-auto flex max-w-4xl flex-col items-center gap-8"
         >
-          <div>
-            <p className="leading-relaxed text-muted-foreground">
-              {personalInfo.bio}
-            </p>
+          <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-primary/20">
+            <Image
+              src="/images/profile.jpg"
+              alt={`Photo de ${personalInfo.name}`}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
-          <div className="space-y-4">
+          <p className="max-w-2xl text-center leading-relaxed text-muted-foreground">
+            {personalInfo.bio}
+          </p>
+
+          <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             <InfoItem
               icon={<MapPin size={18} />}
               label="Localisation"
