@@ -10,8 +10,9 @@ export const experiences: Experience[] = [
   description:
     "Conception, développement et maintenance de solutions numériques critiques pour la Caisse Nationale de Prévoyance Sociale (CNPS), en environnement institutionnel à forte exigence métier et réglementaire.",
   responsibilities: [
-    "Développement d’applications web full stack avec React (frontend) et Spring Boot (backend)",
     "Implémentation de processus métiers clés de la CNPS, notamment l’Attestation de Régularité et la Clôture Journalière Comptable",
+    "Implémentation de règles métiers complexes en Java, conformes aux exigences réglementaires et fonctionnelles",
+    "Maintenance évolutive et corrective des processus métiers existants",
     "Conception et développement d’APIs permettant la synchronisation des encaissements entre les systèmes EBS et PROGRES (progiciel de gestion des relations sociales) sur plusieurs environnements CNPS Côte d’Ivoire",
     "Mise en place et exploitation d’architectures microservices avec déploiement sur AWS",
     "Optimisation des performances, de la sécurité et de la scalabilité des applications existantes",
