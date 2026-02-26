@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { VideoModal } from "@/components/shared/VideoModal"
+import { TiltCard } from "@/components/shared/TiltCard"
 import { Project } from "@/types"
 
 interface ProjectCardProps {
@@ -23,12 +24,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
-      <Card className="flex h-full flex-col">
+      <TiltCard>
+        <Card className="flex h-full flex-col">
         <CardHeader>
           <CardTitle className="text-xl">{project.title}</CardTitle>
           <CardDescription>{project.description}</CardDescription>
@@ -96,6 +98,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </CardContent>
       </Card>
+      </TiltCard>
     </motion.div>
   )
 }

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { personalInfo } from "@/data/personal"
+import { useMouseParallax } from "@/hooks/useMouseParallax"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,6 +20,11 @@ const itemVariants = {
 }
 
 export function HeroSection() {
+  const welcomeParallax = useMouseParallax({ strength: 15 })
+  const titleParallax = useMouseParallax({ strength: 10 })
+  const bioParallax = useMouseParallax({ strength: 7 })
+  const ctaParallax = useMouseParallax({ strength: 5 })
+
   return (
     <section
       id="accueil"
@@ -32,6 +38,7 @@ export function HeroSection() {
       >
         <motion.p
           variants={itemVariants}
+          style={{ x: welcomeParallax.x, y: welcomeParallax.y }}
           className="mb-4 text-sm font-medium uppercase tracking-widest text-primary"
         >
           Bienvenue
@@ -39,6 +46,7 @@ export function HeroSection() {
 
         <motion.h1
           variants={itemVariants}
+          style={{ x: welcomeParallax.x, y: welcomeParallax.y }}
           className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
         >
           {personalInfo.name}
@@ -46,6 +54,7 @@ export function HeroSection() {
 
         <motion.p
           variants={itemVariants}
+          style={{ x: titleParallax.x, y: titleParallax.y }}
           className="mt-4 text-xl text-primary sm:text-2xl"
         >
           {personalInfo.title}
@@ -53,6 +62,7 @@ export function HeroSection() {
 
         <motion.p
           variants={itemVariants}
+          style={{ x: bioParallax.x, y: bioParallax.y }}
           className="mx-auto mt-6 max-w-2xl text-muted-foreground"
         >
           {personalInfo.bio}
@@ -60,6 +70,7 @@ export function HeroSection() {
 
         <motion.div
           variants={itemVariants}
+          style={{ x: ctaParallax.x, y: ctaParallax.y }}
           className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
           <Button asChild size="lg">

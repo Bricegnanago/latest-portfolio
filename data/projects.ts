@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     title: "Monbolide",
     description:
-      "Monbolide est une plateforme innovante de location de véhicules et d’autopartage en Côte d’Ivoire, basée à Abidjan. Elle permet aux particuliers et aux entreprises de réserver en ligne des véhicules standards et haut de gamme (Mercedes GLE, Range Rover, Porsche Cayenne, etc.), avec ou sans chauffeur, disponible 24h/24 et 7j/7. La plateforme met l’accent sur la rapidité, la sécurité des paiements et une expérience utilisateur fluide.",
+      "Monbolide est une plateforme innovante de location de véhicules et d’autopartage en Côte d’Ivoire, basée à Abidjan. Elle permet aux particuliers et aux entreprises de réserver en ligne des véhicules standards et haut de gamme (Mercedes GLE, Range Rover, Porsche Cayenne, etc.), avec ou sans chauffeur, disponible 24h/24 et 7j/7.",
     technologies: [
       "React.js",
       "TypeScript",
@@ -22,21 +22,21 @@ export const projects: Project[] = [
     ],
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "https://www.monbolide.com",
-    videoUrl: "[À COMPLÉTER]"
+    videoUrl: "/images/demo_monbolide.mp4"
   },
  
   {
     title: "QR Order System",
     description:
       "Système de commande par QR code pour la restauration. Les clients scannent un QR code à leur table pour consulter le menu, passer commande et payer directement depuis leur téléphone.",
-    technologies: ["Next.js", "TypeScript", "Spring Boot", "MongoDB", "AWS"],
+    technologies: ["Next.js", "TypeScript", "Nodejs/Express", "MongoDB", "AWS"],
     metrics: [
       "Temps de commande réduit de 60%",
       "Intégration paiement mobile",
       "Support multi-restaurant",
     ],
-    demoUrl: "[À COMPLÉTER]",
-    sourceUrl: "[À COMPLÉTER]",
+    demoUrl: "https://qr-order-system-one.vercel.app",
+    sourceUrl: "https://qr-order-system-one.vercel.app",
     videoUrl: "/images/event_project.mp4",
   },
   {
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       "Interface utilisée par plus de 50 agents",
       "Disponibilité de 99.5%",
     ],
-    demoUrl: "[À COMPLÉTER]",
+    demoUrl: "/images/event_project.mp4",
     sourceUrl: "[À COMPLÉTER]",
   },
 ]

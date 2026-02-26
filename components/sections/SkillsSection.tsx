@@ -11,6 +11,7 @@ import {
 } from "lucide-react"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { SkillBadge } from "@/components/shared/SkillBadge"
+import { TiltCard } from "@/components/shared/TiltCard"
 import { skillCategories } from "@/data/skills"
 import { SkillCategory } from "@/types"
 
@@ -32,27 +33,28 @@ const container = {
 }
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  show: { opacity: 1, y: 0, scale: 1 },
 }
 
 function CategoryCard({ category }: { category: SkillCategory }) {
   const Icon = iconMap[category.icon]
 
   return (
-    <motion.div
-      variants={item}
-      className="rounded-xl border bg-card p-6"
-    >
-      <div className="mb-4 flex items-center gap-3">
-        {Icon && <Icon className="h-5 w-5 text-primary" />}
-        <h3 className="font-semibold">{category.name}</h3>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {category.skills.map((skill) => (
-          <SkillBadge key={skill.name} skill={skill} />
-        ))}
-      </div>
+    <motion.div variants={item}>
+      <TiltCard>
+        <div className="rounded-xl border bg-card p-6">
+          <div className="mb-4 flex items-center gap-3">
+            {Icon && <Icon className="h-5 w-5 text-primary" />}
+            <h3 className="font-semibold">{category.name}</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <SkillBadge key={skill.name} skill={skill} />
+            ))}
+          </div>
+        </div>
+      </TiltCard>
     </motion.div>
   )
 }

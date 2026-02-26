@@ -2,7 +2,7 @@ import { Experience } from "@/types"
 
 export const experiences: Experience[] = [
   {
-  company: "Barnoin / CNPS",
+  company: "Barnoin Informatique - https://barnoininformatique.com",
   position: "Ingénieur de Developpement Web et Mobile",
   startDate: "Juin 2023",
   endDate: "Présent",
@@ -20,7 +20,7 @@ export const experiences: Experience[] = [
   ]
 },
   {
-    company: "MONBOLIDE",
+    company: "MONBOLIDE - https://monbolide.com",
     position: "Développeur Full Stack",
     startDate: "Juin 2021",
     endDate: "Mai 2023",
@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
     ]
   },
   {
-    company: "EBURTIS",
+    company: "EBURTIS - https://eburtis.com",
     position: "Développeur Web Junior",
     startDate: "Septembre 2022",
     endDate: "Février 2023",
@@ -47,7 +47,7 @@ export const experiences: Experience[] = [
       "Développement d'applications web et participation à des projets de transformation digitale.",
     responsibilities: [
       "Développement de composants frontend avec Angular et TypeScript",
-      "Création d'APIs backend avec Spring Boot et PostgreSQL",
+      "Création d'APIs backend avec Spring Boot et ORACLE",
       "Participation aux revues de code et aux sprints Agile",
       "Rédaction de documentation technique et de tests unitaires",
     ],

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Briefcase, MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { TiltCard } from "@/components/shared/TiltCard"
 import { Experience } from "@/types"
 
 interface ExperienceCardProps {
@@ -13,12 +14,13 @@ interface ExperienceCardProps {
 export function ExperienceCard({ experience, index }: ExperienceCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, scale: 0.98 }}
+      whileInView={{ opacity: 1, x: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
-      <Card className="relative border-l-4 border-l-primary">
+      <TiltCard tiltOptions={{ maxTilt: 8 }}>
+        <Card className="relative border-l-4 border-l-primary">
         <CardHeader>
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
             <CardTitle className="text-lg">{experience.position}</CardTitle>
@@ -50,6 +52,7 @@ export function ExperienceCard({ experience, index }: ExperienceCardProps) {
           </ul>
         </CardContent>
       </Card>
+      </TiltCard>
     </motion.div>
   )
 }

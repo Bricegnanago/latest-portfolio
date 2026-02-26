@@ -34,8 +34,8 @@ export function AboutSection() {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mx-auto flex max-w-4xl flex-col items-center gap-8"
