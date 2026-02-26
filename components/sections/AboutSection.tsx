@@ -42,7 +42,7 @@ export function AboutSection() {
         >
           <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-full border-4 border-primary/20">
             <Image
-              src="/images/profile.jpg"
+              src="https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/profile.jpg"
               alt={`Photo de ${personalInfo.name}`}
               fill
               className="object-cover"

@@ -22,7 +22,7 @@ export const projects: Project[] = [
     ],
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "https://www.monbolide.com",
-    videoUrl: "/images/demo_monbolide.mp4"
+    videoUrl: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/demo_monbolide.mp4"
   },
  
   {
