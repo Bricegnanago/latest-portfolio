@@ -22,7 +22,31 @@ export const projects: Project[] = [
     ],
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "https://www.monbolide.com",
-    videoUrl: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/demo_monbolide.mp4"
+    videoUrl: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/demo_monbolide.mp4",
+    images: [
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/banner.png", alt: "Interface client — menu consulté via QR code" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_choose_method_payment.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement2.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/card_payment_boost.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/chat.png", alt: "Chat entre le proprietaire et le client" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/last_car_added.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/list_car.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/payment_mobilie_money.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/portefeuille_view.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/screencapture-monbolide-booking-request-2026-02-27-11_22_37.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/valide_location.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/vue_map.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/wallet_paiement.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/win_money.png", alt: "Interface client — passage de commande" },
+      
+      
+      
+      
+      
+      
+      
+    ],
   },
  
   {
@@ -38,6 +62,11 @@ export const projects: Project[] = [
     demoUrl: "https://qr-order-system-one.vercel.app",
     sourceUrl: "https://qr-order-system-one.vercel.app",
     videoUrl: "/images/event_project.mp4",
+    images: [
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/banner.png", alt: "Interface client — menu consulté via QR code" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_choose_method_payment.png", alt: "Interface client — passage de commande" },
+      { src: "/images/qr-order-dashboard.png", alt: "Dashboard restaurant — suivi des commandes" },
+    ],
   },
   {
     title: "ZoomStudent",
@@ -50,8 +79,13 @@ export const projects: Project[] = [
     ],
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "[À COMPLÉTER]",
+    images: [
+      { src: "/images/zoomstudent-recherche.png", alt: "Recherche de tuteurs — filtres avancés" },
+      { src: "/images/zoomstudent-session.png", alt: "Planification d'une session de tutorat" },
+      { src: "/images/zoomstudent-progression.png", alt: "Tableau de bord — suivi de progression" },
+    ],
   },
-   {
+  {
     title: "Ticket System",
     description:
       "Système de billetterie en ligne permettant la création, la gestion et le suivi des tickets de support. Interface intuitive avec tableau de bord temps réel et notifications automatiques.",
@@ -63,5 +97,9 @@ export const projects: Project[] = [
     ],
     demoUrl: "/images/event_project.mp4",
     sourceUrl: "[À COMPLÉTER]",
+    images: [
+      { src: "/images/ticket-system-formulaire.png", alt: "Formulaire de création de ticket" },
+      { src: "/images/ticket-system-dashboard.png", alt: "Dashboard agent — liste des tickets" },
+    ],
   },
 ]

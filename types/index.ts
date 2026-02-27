@@ -37,6 +37,11 @@ export interface Experience {
   location?: string
 }
 
+export interface DemoImage {
+  src: string
+  alt?: string
+}
+
 export interface Project {
   title: string
   description: string
@@ -46,6 +51,7 @@ export interface Project {
   sourceUrl?: string
   image?: string
   videoUrl?: string
+  images?: DemoImage[]
 }
 
 export interface ContactFormData {

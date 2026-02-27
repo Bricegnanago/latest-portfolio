@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ExternalLink, Github, Play } from "lucide-react"
+import { ExternalLink, Github, Images, Play } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { VideoModal } from "@/components/shared/VideoModal"
+import { ImageGalleryModal } from "@/components/shared/ImageGalleryModal"
 import { TiltCard } from "@/components/shared/TiltCard"
 import { Project } from "@/types"
 
@@ -21,6 +22,7 @@ function isPlaceholder(url?: string): boolean {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
 
   return (
     <motion.div
@@ -28,8 +30,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
+      className="h-full"
     >
-      <TiltCard>
+      <TiltCard className="h-full">
         <Card className="flex h-full flex-col">
         <CardHeader>
           <CardTitle className="text-xl">{project.title}</CardTitle>
@@ -55,7 +58,21 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </ul>
             )}
           </div>
-          <div className="flex gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
+            {project.images && project.images.length > 0 && (
+              <>
+                <Button variant="outline" size="sm" onClick={() => setIsGalleryOpen(true)}>
+                  <Images className="mr-1 h-4 w-4" />
+                  Captures
+                </Button>
+                <ImageGalleryModal
+                  images={project.images}
+                  title={project.title}
+                  isOpen={isGalleryOpen}
+                  onClose={() => setIsGalleryOpen(false)}
+                />
+              </>
+            )}
             {project.videoUrl ? (
               <>
                 <Button variant="outline" size="sm" onClick={() => setIsVideoOpen(true)}>
