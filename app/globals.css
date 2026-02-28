@@ -98,3 +98,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .glow-primary {
+    box-shadow:
+      0 0 12px 2px color-mix(in oklch, var(--primary) 60%, transparent),
+      0 0 24px 4px color-mix(in oklch, var(--primary) 30%, transparent);
+  }
+  .glow-primary-sm {
+    box-shadow: 0 0 6px 1px color-mix(in oklch, var(--primary) 50%, transparent);
+  }
+  .timeline-axis {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in oklch, var(--primary) 80%, transparent) 10%,
+      var(--primary) 50%,
+      color-mix(in oklch, var(--primary) 80%, transparent) 90%,
+      transparent
+    );
+    box-shadow: 0 0 8px 2px color-mix(in oklch, var(--primary) 40%, transparent);
+  }
+}
