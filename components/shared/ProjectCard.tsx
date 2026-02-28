@@ -32,7 +32,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.15 }}
       className="h-full"
     >
-      <TiltCard className="h-full">
+      <TiltCard className="h-full" disabled={isVideoOpen || isGalleryOpen}>
         <Card className="flex h-full flex-col">
         <CardHeader>
           <CardTitle className="text-xl">{project.title}</CardTitle>
