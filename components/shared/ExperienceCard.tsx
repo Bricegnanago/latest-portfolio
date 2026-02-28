@@ -63,7 +63,7 @@ export function ExperienceCard({ experience, index, total: _total }: ExperienceC
       >
         <Card>
           <CardHeader>
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-1">
               <CardTitle className="text-lg">{experience.position}</CardTitle>
               <span className="text-sm text-muted-foreground">
                 {experience.startDate} — {experience.endDate}
