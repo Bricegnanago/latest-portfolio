@@ -114,4 +114,12 @@
     mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
   }
+  .hero-bg-blob {
+    animation: hero-bg-pulse 8s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-bg-pulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  50%       { transform: scale(1.15) translate(3%, -3%); opacity: 1; }
 }
