@@ -1,11 +1,20 @@
 "use client"
 
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import { motion, useReducedMotion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { personalInfo } from "@/data/personal"
 import { useMouseParallax } from "@/hooks/useMouseParallax"
+
+const ParticlesBackground = dynamic(
+  () =>
+    import("@/components/shared/ParticlesBackground").then((m) => ({
+      default: m.ParticlesBackground,
+    })),
+  { ssr: false }
+)
 
 export function HeroSection() {
   const reducedMotion = useReducedMotion()
@@ -29,6 +38,9 @@ export function HeroSection() {
         className="hero-bg-blob pointer-events-none absolute -bottom-16 -left-16 -z-10 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
         style={{ animationDelay: "4s" }}
       />
+
+      {/* Particles background */}
+      <ParticlesBackground />
 
       {/* Main split layout */}
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 md:flex-row md:items-center md:justify-between">

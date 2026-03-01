@@ -25,27 +25,20 @@ export const projects: Project[] = [
     videoUrl: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/demo_monbolide.mp4",
     images: [
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/banner.png", alt: "Interface client — menu consulté via QR code" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_choose_method_payment.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement2.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/card_payment_boost.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/chat.png", alt: "Chat entre le proprietaire et le client" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/win_money.png", alt: "Interface client — passage de commande" },
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/last_car_added.png", alt: "Interface client — passage de commande" },
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/list_car.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/payment_mobilie_money.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/portefeuille_view.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/screencapture-monbolide-booking-request-2026-02-27-11_22_37.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/valide_location.png", alt: "Interface client — passage de commande" },
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/vue_map.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/valide_location.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/screencapture-monbolide-booking-request-2026-02-27-11_22_37.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/chat.png", alt: "Chat entre le proprietaire et le client" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_modal_paiement2.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_choose_method_payment.png", alt: "Interface client — passage de commande" },
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/wallet_paiement.png", alt: "Interface client — passage de commande" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/win_money.png", alt: "Interface client — passage de commande" },
-      
-      
-      
-      
-      
-      
-      
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/payment_mobilie_money.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/card_payment_boost.png", alt: "Interface client — passage de commande" },
+      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/portefeuille_view.png", alt: "Interface client — passage de commande" },
     ],
   },
  
@@ -56,15 +49,18 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Nodejs/Express", "MongoDB", "AWS"],
     metrics: [
       "Temps de commande réduit de 60%",
-      "Intégration paiement mobile",
-      "Support multi-restaurant",
+      "Développement de composants React dynamiques avec gestion avancée du stock et des promotions",
+      "Calcul intelligent des prix (remises, bundles, économies affichées)",
+      "Contrôle des quantités basé sur la disponibilité réelle du stock",
+      "Système de parametrage des utilisateurs (Serveur, Barman, Administrateur)",
+      "Interface d’administration complète avec tableau de gestion et statistiques en temps réel",
+      "Implémentation d’une API sécurisée (Axios + authentification admin) avec CRUD complet",
+
     ],
     demoUrl: "https://qr-order-system-one.vercel.app",
     sourceUrl: "https://qr-order-system-one.vercel.app",
     videoUrl: "/images/event_project.mp4",
     images: [
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/banner.png", alt: "Interface client — menu consulté via QR code" },
-      { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/boost_choose_method_payment.png", alt: "Interface client — passage de commande" },
       { src: "/images/qr-order-dashboard.png", alt: "Dashboard restaurant — suivi des commandes" },
     ],
   },
@@ -74,8 +70,21 @@ export const projects: Project[] = [
       "Plateforme éducative facilitant la mise en relation entre étudiants et tuteurs. Fonctionnalités de recherche avancée, planification de sessions et suivi de progression.",
     technologies: ["Vue.js", "Next.js", "Django Rest Framework", "PostgreSQL", "Docker", "CI/CD", "Redis", "Socket.io"],
     metrics: [
-      "Système de matching intelligent",
-      "Tableau de bord de progression",
+      "Gestion des cours & emploi du temps",
+      "Gestion des établissements scolaires",
+      "Gestion des utilisateurs & Roles",
+      "Parametrage de l'ecole",
+      "Gestion de l'emploi du temps",
+      "Gestion des examens",
+      "Notes & Evaluations",
+      "Presences et absences",
+      "Communication & messagie",
+      "Ressources pedagogiques",
+      "Espace Etudiants",
+      "Espace Parents",
+      "Securite & conformite",
+      "Tache asynchrones & automatisation"
+
     ],
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "[À COMPLÉTER]",
