@@ -29,6 +29,15 @@ Markdown (documentation uniquement): Follow standard conventions
 - 001-enrich-constitution: Added Markdown (documentation uniquement) + Aucune — modification de fichier Markdown
 
 <!-- MANUAL ADDITIONS START -->
+## 012-hero-3d
+
+- Nouvelle dépendance : `@react-three/fiber@9` + `three` + `@types/three` (devDep)
+- Nouveau composant : `components/shared/Hero3DObject.tsx` — Canvas R3F avec icosaèdre animé
+- Fichier modifié : `components/sections/HeroSection.tsx` — ajout dynamic import `Hero3DObject`
+- Guard triple : `hasWebGL && isDesktop && !reducedMotion` → retourne null si l'une des conditions échoue
+- Positionnement : `absolute right-0 top-0 -z-10 pointer-events-none` (derrière tout le contenu Hero)
+- Voir [quickstart](specs/012-hero-3d/quickstart.md) pour le code complet et smoke tests
+
 ## 003-qr-order-demo-video
 
 - Ajouter `videoUrl?: string` au type `Project` dans `types/index.ts`

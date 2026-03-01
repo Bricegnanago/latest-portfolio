@@ -40,6 +40,7 @@ export default function RootLayout({
     <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Navbar />

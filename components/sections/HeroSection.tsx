@@ -16,6 +16,14 @@ const ParticlesBackground = dynamic(
   { ssr: false }
 )
 
+const Hero3DObject = dynamic(
+  () =>
+    import("@/components/shared/Hero3DObject").then((m) => ({
+      default: m.Hero3DObject,
+    })),
+  { ssr: false }
+)
+
 export function HeroSection() {
   const reducedMotion = useReducedMotion()
   const avatarParallax = useMouseParallax({ strength: 12, inverted: false })
@@ -41,6 +49,9 @@ export function HeroSection() {
 
       {/* Particles background */}
       <ParticlesBackground />
+
+      {/* 3D decorative object */}
+      <Hero3DObject />
 
       {/* Main split layout */}
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 md:flex-row md:items-center md:justify-between">
