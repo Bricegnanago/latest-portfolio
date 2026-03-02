@@ -29,6 +29,7 @@ export interface SkillCategory {
 
 export interface Experience {
   company: string
+  website?: string
   position: string
   startDate: string
   endDate: string

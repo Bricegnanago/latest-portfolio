@@ -69,15 +69,26 @@ export function ExperienceCard({ experience, index, total: _total }: ExperienceC
                 {experience.startDate} — {experience.endDate}
               </span>
             </div>
-            <CardDescription className="flex items-center gap-2">
-              <Briefcase className="h-4 w-4" />
-              {experience.company}
+            <CardDescription className="flex flex-col gap-1">
+              <span className="flex items-center gap-2 flex-wrap">
+                <Briefcase className="h-4 w-4 shrink-0" />
+                <span>{experience.company}</span>
+                {experience.website && (
+                  <a
+                    href={experience.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline text-xs break-all"
+                  >
+                    {experience.website.replace("https://", "")}
+                  </a>
+                )}
+              </span>
               {experience.location && (
-                <>
-                  <span className="text-muted-foreground">·</span>
-                  <MapPin className="h-4 w-4" />
+                <span className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 shrink-0" />
                   {experience.location}
-                </>
+                </span>
               )}
             </CardDescription>
           </CardHeader>
