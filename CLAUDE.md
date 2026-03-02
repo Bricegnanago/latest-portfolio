@@ -29,6 +29,15 @@ Markdown (documentation uniquement): Follow standard conventions
 - 001-enrich-constitution: Added Markdown (documentation uniquement) + Aucune — modification de fichier Markdown
 
 <!-- MANUAL ADDITIONS START -->
+## 013-hero-3d-laptop
+
+- **Aucune nouvelle dépendance** — `@react-three/fiber` + `three` déjà installés (feature 012)
+- Nouveau composant : `components/shared/Hero3DLaptop.tsx` — laptop procédural BoxGeometry (base + screen + emissive face)
+- Fichier modifié : `components/sections/HeroSection.tsx` — remplace `Hero3DObject` par `Hero3DLaptop`
+- Rotation Y uniquement (axe vertical), tilt souris sur X + Z (max 20°)
+- Camera : `position={[0, 1.5, 5]}`, `fov={40}` — angle légèrement surplombant
+- Voir [quickstart](specs/013-hero-3d-laptop/quickstart.md) pour le code complet
+
 ## 012-hero-3d
 
 - Nouvelle dépendance : `@react-three/fiber@9` + `three` + `@types/three` (devDep)

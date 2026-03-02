@@ -16,10 +16,10 @@ const ParticlesBackground = dynamic(
   { ssr: false }
 )
 
-const Hero3DObject = dynamic(
+const Hero3DLaptop = dynamic(
   () =>
-    import("@/components/shared/Hero3DObject").then((m) => ({
-      default: m.Hero3DObject,
+    import("@/components/shared/Hero3DLaptop").then((m) => ({
+      default: m.Hero3DLaptop,
     })),
   { ssr: false }
 )
@@ -50,8 +50,8 @@ export function HeroSection() {
       {/* Particles background */}
       <ParticlesBackground />
 
-      {/* 3D decorative object */}
-      <Hero3DObject />
+      {/* 3D decorative laptop */}
+      <Hero3DLaptop />
 
       {/* Main split layout */}
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 md:flex-row md:items-center md:justify-between">
