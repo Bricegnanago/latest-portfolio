@@ -17,14 +17,24 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://brice-gnanago.vercel.app"),
+  metadataBase: new URL("https://bricegnanago.dev"),
   title: "Brice GNANAGO — Ingénieur Logiciel Full-Stack",
   description:
     "Portfolio de Brice GNANAGO, ingénieur full-stack spécialisé React, Node.js, AWS et DevOps. Basé à Abidjan, Côte d'Ivoire.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Brice GNANAGO — Ingénieur Logiciel Full-Stack",
     description:
       "Portfolio de Brice GNANAGO, ingénieur full-stack spécialisé React, Node.js, AWS et DevOps.",
+    url: "https://bricegnanago.dev",
     images: ["/og-image.png"],
     type: "website",
     locale: "fr_FR",
