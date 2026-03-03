@@ -1,3 +1,21 @@
+# Quickstart: Zoom sur les Images de Projet
+
+**Feature**: `014-project-image-zoom`
+**Date**: 2026-03-03
+
+---
+
+## Changes Summary
+
+### Installation
+
+**Aucune nouvelle dépendance** — Framer Motion 12 et React 18 déjà installés.
+
+### Seul fichier modifié : `components/shared/ImageGalleryModal.tsx`
+
+Remplacer le fichier entier par :
+
+```tsx
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
@@ -43,13 +61,14 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
   const [panX, setPanX] = useState(0)
   const [panY, setPanY] = useState(0)
 
-  // Refs
   const containerRef = useRef<HTMLDivElement>(null)
   const startXRef = useRef(0)
   const startYRef = useRef(0)
   const startPanXRef = useRef(0)
   const startPanYRef = useRef(0)
   const hasDraggedRef = useRef(false)
+
+  // Pinch tracking
   const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map())
   const initialPinchDistRef = useRef(0)
   const initialPinchScaleRef = useRef(1)
@@ -105,7 +124,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     if (!open) onClose()
   }
 
-  // ── Reset on close ────────────────────────────────────────────────────────
+  // ── Reset on close / image change ────────────────────────────────────────
 
   useEffect(() => {
     if (!isOpen) {
@@ -115,12 +134,13 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     }
   }, [isOpen])
 
-  // ── Keyboard (capture phase to intercept Escape before Dialog) ───────────
+  // ── Keyboard ─────────────────────────────────────────────────────────────
 
   useEffect(() => {
     if (!isOpen) return
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape" && zoomed) {
+        // Intercept Escape before Dialog closes the modal
         e.preventDefault()
         e.stopPropagation()
         resetZoom()
@@ -129,6 +149,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
       if (e.key === "ArrowLeft") goPrev()
       else if (e.key === "ArrowRight") goNext()
     }
+    // Capture phase to intercept before Radix/Dialog
     window.addEventListener("keydown", handleKeyDown, true)
     return () => window.removeEventListener("keydown", handleKeyDown, true)
   }, [isOpen, goPrev, goNext, zoomed])
@@ -158,12 +179,10 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY })
 
     if (pointersRef.current.size === 2) {
+      // Pinch-to-zoom
       const pts = Array.from(pointersRef.current.values())
       const dist = getDistance(pts[0], pts[1])
-      const newScale = Math.max(
-        1,
-        Math.min(4, initialPinchScaleRef.current * (dist / initialPinchDistRef.current))
-      )
+      const newScale = Math.max(1, Math.min(4, initialPinchScaleRef.current * (dist / initialPinchDistRef.current)))
       setScale(newScale)
       setZoomed(newScale > 1)
       const clamped = clampPan(initialPinchPanRef.current.x, initialPinchPanRef.current.y, newScale)
@@ -173,6 +192,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     }
 
     if (pointersRef.current.size === 1 && zoomed) {
+      // Pan when zoomed
       const dx = e.clientX - startXRef.current
       const dy = e.clientY - startYRef.current
       if (Math.abs(dx) > 4 || Math.abs(dy) > 4) hasDraggedRef.current = true
@@ -194,6 +214,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     const hasMoved = Math.abs(dx) > 5 || Math.abs(dy) > 5
 
     if (!hasMoved && !hasDraggedRef.current) {
+      // Click → toggle zoom
       if (zoomed) {
         resetZoom()
       } else {
@@ -204,6 +225,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     }
 
     if (!zoomed && Math.abs(dx) >= 50) {
+      // Swipe to navigate (only when not zoomed)
       if (dx < 0) goNext()
       else goPrev()
     }
@@ -213,7 +235,9 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     pointersRef.current.delete(e.pointerId)
   }
 
-  // ── Early return ─────────────────────────────────────────────────────────
+  // ── Cursor ───────────────────────────────────────────────────────────────
+
+  const cursor = zoomed ? "cursor-zoom-out" : "cursor-zoom-in"
 
   if (images.length === 0) return null
 
@@ -226,7 +250,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
 
         <div
           ref={containerRef}
-          className={`relative aspect-video w-full overflow-hidden bg-black touch-none ${zoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+          className={`relative aspect-video w-full overflow-hidden bg-black touch-none ${cursor}`}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -246,11 +270,7 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
               <motion.div
                 className="absolute inset-0"
                 animate={{ scale, x: panX, y: panY }}
-                transition={
-                  reducedMotion
-                    ? { duration: 0 }
-                    : { type: "spring", stiffness: 300, damping: 30 }
-                }
+                transition={reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
               >
                 <Image
                   src={currentImage.src}
@@ -311,3 +331,40 @@ export function ImageGalleryModal({ images, title, isOpen, onClose }: ImageGalle
     </Dialog>
   )
 }
+```
+
+---
+
+## Smoke Test Checklist
+
+- [ ] `npx tsc --noEmit` — 0 erreur TypeScript
+- [ ] Ouvrir la galerie d'un projet avec images → curseur loupe (+) visible
+- [ ] Cliquer sur l'image → image agrandie à ~2.5× (base + écran reconnaissables)
+- [ ] Curseur passe en loupe (−) quand zoomé
+- [ ] Cliquer à nouveau sur l'image zoomée → retour à la taille normale
+- [ ] Image zoomée → glisser la souris → l'image se déplace, révèle les bords
+- [ ] Pan : l'image ne dépasse pas les limites du conteneur (clamp effectif)
+- [ ] Appuyer sur ← ou → quand zoomé → navigation vers autre image, zoom réinitialisé
+- [ ] Appuyer sur Échap quand zoomé → dézoom uniquement (modale reste ouverte)
+- [ ] Appuyer sur Échap quand non zoomé → modale se ferme
+- [ ] Cliquer sur bouton flèche (prev/next) → navigation fonctionne, zoom réinitialisé
+- [ ] Cliquer sur un point de pagination → navigation fonctionne, zoom réinitialisé
+- [ ] Ouvrir sur mobile → swipe horizontal fonctionne (sans zoom actif)
+- [ ] Sur mobile : pincer deux doigts → image s'agrandit proportionnellement
+- [ ] Sur mobile : pincer + pan avec un doigt → déplacement possible quand zoomé
+- [ ] `prefers-reduced-motion` actif → zoom reste fonctionnel, animations désactivées
+
+---
+
+## Non-Regression Check
+
+| Comportement | Attendu |
+|--------------|---------|
+| Swipe navigation (mobile) | ✅ Inchangé quand non zoomé |
+| Navigation clavier ← → | ✅ Inchangée |
+| Boutons prev/next | ✅ Inchangés |
+| Pagination (dots) | ✅ Inchangée |
+| Dialog shadcn — fermeture sur Échap | ✅ Fonctionne quand non zoomé |
+| Dialog shadcn — fermeture clic extérieur | ✅ Inchangée |
+| `npx tsc --noEmit` | ✅ 0 erreur |
+| Lighthouse accessibilité | ✅ `aria-label` + curseur visuel maintenus |
