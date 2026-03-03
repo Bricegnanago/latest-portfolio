@@ -41,7 +41,60 @@ export const projects: Project[] = [
       { src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/monbolide-demo/portefeuille_view.png", alt: "Interface client — passage de commande" },
     ],
   },
- 
+  {
+    title: "Event Ticketing System with QR Code Validation",
+    description:
+      "Système de billetterie événementielle automatisé développé avec Google Forms, Google Sheets et Google Apps Script. Les utilisateurs réservent via un formulaire, reçoivent automatiquement un ticket PDF avec QR Code unique par email, et les tickets sont vérifiés en temps réel le jour de l’événement avec mise à jour automatique du statut.",
+
+    technologies: [
+      "Google Apps Script",
+      "Google Forms",
+      "Google Sheets",
+      "HTML/CSS",
+      "QR Code API",
+      "PDF Generation"
+    ],
+
+    metrics: [
+      "Automatisation complète du processus de réservation et d’envoi des tickets",
+      "Génération et validation en temps réel des QR Codes",
+      "Mise à jour automatique du statut des tickets après scan",
+      "Solution 100% serverless sans infrastructure externe"
+    ],
+
+    demoUrl: "/images/event_project.mp4",
+
+    sourceUrl: "[À COMPLÉTER - GitHub ou description technique]",
+
+    images: [
+      {
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/1-screencapture-docs-google-forms-d-17sPiab4FQNrTIWXzXEggG1g-zxPhMVI7aKFr1MiTtoQ-edit-2026-03-03-17_54_05.png",
+        alt: "Formulaire Google de réservation"
+      },
+      {
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/2-screencapture-docs-google-spreadsheets-d-1YPAH7i1j695IqaRn9ylgnda0L22L-lR9pn3D40SVA0E-edit-2026-03-03-17_55_55.png",
+        alt: "Google Sheet servant de base de données et suivi des statuts"
+      },
+      {
+
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/3-AppScript.png",
+        alt: "Script d'edition du ticket de toute la logique métier"
+      },
+      {
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/4-email_recu_rdv.png",
+        alt: "L'email de reception du ticket de l'utilisateur"
+      },
+      {
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/5-ticket_rvd.png",
+        alt: "Ticket de l'évènment généré"
+      },
+      {
+        src: "https://portfolio-bricegnanago.s3.us-east-1.amazonaws.com/EventTicketingQRCodeValidation/6-ticket_already_used.jpeg",
+        alt: "Interface de validation du QR Code le jour de l’événement"
+      }
+    ],
+  },
+
   {
     title: "QR Order System",
     description:
@@ -101,26 +154,10 @@ export const projects: Project[] = [
     demoUrl: "[À COMPLÉTER]",
     sourceUrl: "[À COMPLÉTER]",
     images: [
-      { src: "/images/zoomstudent-recherche.png", alt: "Recherche de tuteurs — filtres avancés" },
-      { src: "/images/zoomstudent-session.png", alt: "Planification d'une session de tutorat" },
-      { src: "/images/zoomstudent-progression.png", alt: "Tableau de bord — suivi de progression" },
+      // { src: "/images/zoomstudent-recherche.png", alt: "Recherche de tuteurs — filtres avancés" },
+      // { src: "/images/zoomstudent-session.png", alt: "Planification d'une session de tutorat" },
+      // { src: "/images/zoomstudent-progression.png", alt: "Tableau de bord — suivi de progression" },
     ],
-  },
-  {
-    title: "Ticket System",
-    description:
-      "Système de billetterie en ligne permettant la création, la gestion et le suivi des tickets de support. Interface intuitive avec tableau de bord temps réel et notifications automatiques.",
-    technologies: ["Apps Script", "Google Form", "Google Sheet"],
-    metrics: [
-      "Réduction de 40% du temps de traitement des tickets",
-      "Interface utilisée par plus de 50 agents",
-      "Disponibilité de 99.5%",
-    ],
-    demoUrl: "/images/event_project.mp4",
-    sourceUrl: "[À COMPLÉTER]",
-    images: [
-      { src: "/images/ticket-system-formulaire.png", alt: "Formulaire de création de ticket" },
-      { src: "/images/ticket-system-dashboard.png", alt: "Dashboard agent — liste des tickets" },
-    ],
-  },
+  }
+  
 ]
