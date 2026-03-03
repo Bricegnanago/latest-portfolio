@@ -35,9 +35,14 @@ export const metadata: Metadata = {
     description:
       "Portfolio de Brice GNANAGO, ingénieur full-stack spécialisé React, Node.js, AWS et DevOps.",
     url: "https://bricegnanago.dev",
-    images: ["/og-image.png"],
     type: "website",
     locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brice GNANAGO — Ingénieur Logiciel Full-Stack",
+    description:
+      "Portfolio de Brice GNANAGO, ingénieur full-stack spécialisé React, Node.js, AWS et DevOps.",
   },
 }
 
