@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { VideoModal } from "@/components/shared/VideoModal"
 import { ImageGalleryModal } from "@/components/shared/ImageGalleryModal"
 import { TiltCard } from "@/components/shared/TiltCard"
+import { useLocale } from "@/contexts/LocaleContext"
 import { Project } from "@/types"
 
 interface ProjectCardProps {
@@ -23,6 +24,7 @@ function isPlaceholder(url?: string): boolean {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+  const { t } = useLocale()
 
   return (
     <motion.div
@@ -63,7 +65,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <>
                 <Button variant="outline" size="sm" onClick={() => setIsGalleryOpen(true)}>
                   <Images className="mr-1 h-4 w-4" />
-                  Captures
+                  {t.projects.screenshots}
                 </Button>
                 <ImageGalleryModal
                   images={project.images}
@@ -77,7 +79,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <>
                 <Button variant="outline" size="sm" onClick={() => setIsVideoOpen(true)}>
                   <Play className="mr-1 h-4 w-4" />
-                  Voir la démo
+                  {t.projects.viewDemo}
                 </Button>
                 <VideoModal
                   videoUrl={project.videoUrl}
@@ -90,26 +92,26 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <Button variant="outline" size="sm" asChild>
                 <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-1 h-4 w-4" />
-                  Démo
+                  {t.projects.demo}
                 </a>
               </Button>
             ) : (
               <Button variant="outline" size="sm" disabled>
                 <ExternalLink className="mr-1 h-4 w-4" />
-                Démo à venir
+                {t.projects.demoComing}
               </Button>
             )}
             {!isPlaceholder(project.sourceUrl) ? (
               <Button variant="outline" size="sm" asChild>
                 <a href={project.sourceUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="mr-1 h-4 w-4" />
-                  Code
+                  {t.projects.code}
                 </a>
               </Button>
             ) : (
               <Button variant="outline" size="sm" disabled>
                 <Github className="mr-1 h-4 w-4" />
-                Code à venir
+                {t.projects.codeComing}
               </Button>
             )}
           </div>

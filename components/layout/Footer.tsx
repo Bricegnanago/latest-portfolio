@@ -1,5 +1,8 @@
+"use client"
+
 import { Github, Linkedin, Mail } from "lucide-react"
-import { personalInfo } from "@/data/personal"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Github: <Github size={20} />,
@@ -8,18 +11,20 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { locale, t } = useLocale()
+  const { personalInfo } = getLocalizedData(locale)
 
   return (
     <footer className="border-t border-border/40 py-8">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 sm:flex-row sm:justify-between sm:px-6">
         <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} {personalInfo.name}. Tous droits réservés.
+          &copy; {currentYear} {personalInfo.name}. {t.footer.allRightsReserved}
         </p>
 
         <div className="flex items-center gap-4">
           <a
             href={`mailto:${personalInfo.email}`}
-            aria-label="Envoyer un email"
+            aria-label={t.footer.sendEmail}
             className="text-muted-foreground transition-colors hover:text-primary"
           >
             <Mail size={20} />

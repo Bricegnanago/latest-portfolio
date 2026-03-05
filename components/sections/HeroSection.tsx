@@ -5,7 +5,8 @@ import dynamic from "next/dynamic"
 import { motion, useReducedMotion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { personalInfo } from "@/data/personal"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 import { useMouseParallax } from "@/hooks/useMouseParallax"
 
 const ParticlesBackground = dynamic(
@@ -27,6 +28,8 @@ const Hero3DLaptop = dynamic(
 export function HeroSection() {
   const reducedMotion = useReducedMotion()
   const avatarParallax = useMouseParallax({ strength: 12, inverted: false })
+  const { locale, t } = useLocale()
+  const { personalInfo } = getLocalizedData(locale)
 
   const nameChars = personalInfo.name.split("")
   const bioWords = personalInfo.bio.split(" ")
@@ -64,7 +67,7 @@ export function HeroSection() {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="mb-4 text-sm font-medium uppercase tracking-widest text-primary"
           >
-            Bienvenue
+            {t.hero.welcome}
           </motion.p>
 
           {/* Name — letter-by-letter spring */}
@@ -162,7 +165,7 @@ export function HeroSection() {
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Button asChild size="lg">
-                <a href="#projets">Voir mes projets</a>
+                <a href="#projets">{t.hero.viewProjects}</a>
               </Button>
             </motion.div>
             <motion.div
@@ -170,7 +173,7 @@ export function HeroSection() {
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
             >
               <Button asChild variant="outline" size="lg">
-                <a href="#contact">Me contacter</a>
+                <a href="#contact">{t.hero.contactMe}</a>
               </Button>
             </motion.div>
           </motion.div>
@@ -220,7 +223,7 @@ export function HeroSection() {
       >
         <a
           href="#a-propos"
-          aria-label="Défiler vers le bas"
+          aria-label={t.hero.scrollDown}
           className="text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowDown className="animate-bounce" size={24} />

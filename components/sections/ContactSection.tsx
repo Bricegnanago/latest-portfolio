@@ -10,11 +10,15 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { SectionTitle } from "@/components/shared/SectionTitle"
-import { personalInfo } from "@/data/personal"
-import { contactFormSchema, ContactFormValues } from "@/lib/validations"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
+import { getContactFormSchema, ContactFormValues } from "@/lib/validations"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { locale, t } = useLocale()
+  const { personalInfo } = getLocalizedData(locale)
+  const contactFormSchema = getContactFormSchema(locale)
 
   const {
     register,
@@ -31,7 +35,7 @@ export function ContactSection() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, locale }),
       })
 
       const result = await response.json()
@@ -43,7 +47,7 @@ export function ContactSection() {
         toast.error(result.message)
       }
     } catch {
-      toast.error("Une erreur est survenue lors de l'envoi. Veuillez réessayer.")
+      toast.error(t.api.error)
     } finally {
       setIsSubmitting(false)
     }
@@ -53,17 +57,17 @@ export function ContactSection() {
     <section id="contact" className="py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <SectionTitle
-          title="Contact"
-          subtitle="Envoyez-moi un message ou contactez-moi directement"
+          title={t.contact.title}
+          subtitle={t.contact.subtitle}
         />
 
         <div className="grid gap-12 md:grid-cols-2">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Nom</Label>
+              <Label htmlFor="name">{t.contact.name}</Label>
               <Input
                 id="name"
-                placeholder="Votre nom"
+                placeholder={t.contact.namePlaceholder}
                 {...register("name")}
                 aria-invalid={!!errors.name}
               />
@@ -73,11 +77,11 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t.contact.email}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="votre@email.com"
+                placeholder={t.contact.emailPlaceholder}
                 {...register("email")}
                 aria-invalid={!!errors.email}
               />
@@ -87,10 +91,10 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message">{t.contact.message}</Label>
               <Textarea
                 id="message"
-                placeholder="Votre message..."
+                placeholder={t.contact.messagePlaceholder}
                 rows={5}
                 {...register("message")}
                 aria-invalid={!!errors.message}
@@ -106,13 +110,13 @@ export function ContactSection() {
               ) : (
                 <Send className="mr-2 h-4 w-4" />
               )}
-              {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+              {isSubmitting ? t.contact.sending : t.contact.send}
             </Button>
           </form>
 
           <div className="space-y-6">
             <div>
-              <h3 className="mb-4 text-lg font-semibold">Coordonnées directes</h3>
+              <h3 className="mb-4 text-lg font-semibold">{t.contact.directContact}</h3>
               <div className="space-y-3">
                 <a
                   href={`mailto:${personalInfo.email}`}

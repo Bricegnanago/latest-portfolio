@@ -2,15 +2,19 @@
 
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { ProjectCard } from "@/components/shared/ProjectCard"
-import { projects } from "@/data/projects"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 
 export function ProjectsSection() {
+  const { locale, t } = useLocale()
+  const { projects } = getLocalizedData(locale)
+
   return (
     <section id="projets" className="py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <SectionTitle
-          title="Projets"
-          subtitle="Quelques réalisations concrètes"
+          title={t.projects.title}
+          subtitle={t.projects.subtitle}
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (

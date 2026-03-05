@@ -2,15 +2,19 @@
 
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { ExperienceCard } from "@/components/shared/ExperienceCard"
-import { experiences } from "@/data/experiences"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 
 export function ExperienceSection() {
+  const { locale, t } = useLocale()
+  const { experiences } = getLocalizedData(locale)
+
   return (
     <section id="experiences" className="py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl">
         <SectionTitle
-          title="Expériences"
-          subtitle="Mon parcours professionnel"
+          title={t.experience.title}
+          subtitle={t.experience.subtitle}
         />
         <div className="relative">
           {/* Vertical timeline axis */}

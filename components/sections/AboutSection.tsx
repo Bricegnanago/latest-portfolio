@@ -4,7 +4,8 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { MapPin, Languages, GraduationCap, Award } from "lucide-react"
 import { SectionTitle } from "@/components/shared/SectionTitle"
-import { personalInfo } from "@/data/personal"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 
 interface InfoItemProps {
   icon: React.ReactNode
@@ -25,12 +26,15 @@ function InfoItem({ icon, label, value }: InfoItemProps) {
 }
 
 export function AboutSection() {
+  const { locale, t } = useLocale()
+  const { personalInfo } = getLocalizedData(locale)
+
   return (
     <section id="a-propos" className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionTitle
-          title="À propos"
-          subtitle="En savoir plus sur mon parcours et ma personnalité"
+          title={t.about.title}
+          subtitle={t.about.subtitle}
         />
 
         <motion.div
@@ -57,23 +61,23 @@ export function AboutSection() {
           <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             <InfoItem
               icon={<MapPin size={18} />}
-              label="Localisation"
+              label={t.about.location}
               value={personalInfo.location}
             />
             <InfoItem
               icon={<Languages size={18} />}
-              label="Langues"
+              label={t.about.languages}
               value={personalInfo.languages.join(", ")}
             />
             <InfoItem
               icon={<GraduationCap size={18} />}
-              label="Formation"
+              label={t.about.education}
               value={personalInfo.education}
             />
             {personalInfo.certifications.length > 0 && (
               <InfoItem
                 icon={<Award size={18} />}
-                label="Certifications"
+                label={t.about.certifications}
                 value={personalInfo.certifications.join(", ")}
               />
             )}

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 import { Toaster } from "@/components/ui/sonner"
+import { LocaleProvider } from "@/contexts/LocaleContext"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import "./globals.css"
@@ -58,10 +59,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <Toaster />
+          <LocaleProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <Toaster />
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,10 +1,33 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
-import { contactFormSchema } from "@/lib/validations"
+import { getContactFormSchema } from "@/lib/validations"
+import type { Locale } from "@/i18n/types"
+
+const apiMessages = {
+  fr: {
+    invalidData: "Données invalides.",
+    configError: "Configuration email manquante.",
+    success: "Votre message a été envoyé avec succès.",
+    error: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+    emailSubject: "Portfolio — Nouveau message de",
+  },
+  en: {
+    invalidData: "Invalid data.",
+    configError: "Email configuration missing.",
+    success: "Your message has been sent successfully.",
+    error: "An error occurred while sending. Please try again.",
+    emailSubject: "Portfolio — New message from",
+  },
+}
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
+    const locale: Locale =
+      body.locale === "en" ? "en" : "fr"
+    const messages = apiMessages[locale]
+
+    const contactFormSchema = getContactFormSchema(locale)
     const parsed = contactFormSchema.safeParse(body)
 
     if (!parsed.success) {
@@ -14,7 +37,7 @@ export async function POST(request: Request) {
       }))
 
       return NextResponse.json(
-        { success: false, message: "Données invalides.", errors },
+        { success: false, message: messages.invalidData, errors },
         { status: 400 }
       )
     }
@@ -26,7 +49,7 @@ export async function POST(request: Request) {
 
     if (!resendApiKey || !contactEmail) {
       return NextResponse.json(
-        { success: false, message: "Configuration email manquante." },
+        { success: false, message: messages.configError },
         { status: 500 }
       )
     }
@@ -42,13 +65,13 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Votre message a été envoyé avec succès.",
+      message: messages.success,
     })
   } catch {
     return NextResponse.json(
       {
         success: false,
-        message: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+        message: apiMessages.fr.error,
       },
       { status: 500 }
     )

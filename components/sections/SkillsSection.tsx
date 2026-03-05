@@ -12,7 +12,8 @@ import {
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { SkillBadge } from "@/components/shared/SkillBadge"
 import { TiltCard } from "@/components/shared/TiltCard"
-import { skillCategories } from "@/data/skills"
+import { useLocale } from "@/contexts/LocaleContext"
+import { getLocalizedData } from "@/data"
 import { SkillCategory } from "@/types"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -60,12 +61,15 @@ function CategoryCard({ category }: { category: SkillCategory }) {
 }
 
 export function SkillsSection() {
+  const { locale, t } = useLocale()
+  const { skillCategories } = getLocalizedData(locale)
+
   return (
     <section id="competences" className="py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <SectionTitle
-          title="Compétences"
-          subtitle="Technologies et outils que je maîtrise"
+          title={t.skills.title}
+          subtitle={t.skills.subtitle}
         />
         <motion.div
           variants={container}

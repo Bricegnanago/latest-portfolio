@@ -3,27 +3,24 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { useScrollSpy } from "@/hooks/useScrollSpy"
+import { useLocale } from "@/contexts/LocaleContext"
 import { ThemeToggle } from "@/components/layout/ThemeToggle"
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher"
 import { cn } from "@/lib/utils"
 
-interface NavLink {
-  label: string
-  href: string
-  sectionId: string
-}
-
-const NAV_LINKS: NavLink[] = [
-  { label: "Accueil", href: "#accueil", sectionId: "accueil" },
-  { label: "À propos", href: "#a-propos", sectionId: "a-propos" },
-  { label: "Compétences", href: "#competences", sectionId: "competences" },
-  { label: "Expériences", href: "#experiences", sectionId: "experiences" },
-  { label: "Projets", href: "#projets", sectionId: "projets" },
-  { label: "Contact", href: "#contact", sectionId: "contact" },
-]
+const NAV_LINKS = [
+  { labelKey: "home", href: "#accueil", sectionId: "accueil" },
+  { labelKey: "about", href: "#a-propos", sectionId: "a-propos" },
+  { labelKey: "skills", href: "#competences", sectionId: "competences" },
+  { labelKey: "experiences", href: "#experiences", sectionId: "experiences" },
+  { labelKey: "projects", href: "#projets", sectionId: "projets" },
+  { labelKey: "contact", href: "#contact", sectionId: "contact" },
+] as const
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const activeSection = useScrollSpy()
+  const { t } = useLocale()
 
   const handleClick = () => {
     setIsMobileMenuOpen(false)
@@ -39,7 +36,7 @@ export function Navbar() {
         <a
           href="#accueil"
           className="text-xl font-bold text-primary"
-          aria-label="Retour à l'accueil"
+          aria-label={t.nav.backToHome}
         >
           BG
         </a>
@@ -59,19 +56,21 @@ export function Navbar() {
                       : "text-muted-foreground"
                   )}
                 >
-                  {link.label}
+                  {t.nav[link.labelKey]}
                 </a>
               </li>
             ))}
           </ul>
+          <LanguageSwitcher />
           <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-label={isMobileMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,7 +94,7 @@ export function Navbar() {
                       : "text-muted-foreground"
                   )}
                 >
-                  {link.label}
+                  {t.nav[link.labelKey]}
                 </a>
               </li>
             ))}
